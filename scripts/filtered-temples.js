@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Filter functions
     document.getElementById('filter-old').addEventListener('click', function() {
         console.log("Old temples filter clicked!");  // Debugging line
-        const filtered = temples.filter(temple => new Date(temple.dedicated).getFullYear() < 2000);
+        const filtered = temples.filter(temple => new Date(temple.dedicated).getFullYear() < 1900);
         displayTemples(filtered);
     });
 
@@ -71,17 +71,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('filter-large').addEventListener('click', function() {
-        const filtered = temples.filter(temple => temple.area > 50000);
+        const filtered = temples.filter(temple => temple.area > 90000);
         displayTemples(filtered);
     });
 
     document.getElementById('filter-small').addEventListener('click', function() {
-        const filtered = temples.filter(temple => temple.area <= 50000);
+        const filtered = temples.filter(temple => temple.area <= 10000);
         displayTemples(filtered);
     });
 
     document.getElementById('filter-home').addEventListener('click', function() {
-        const filtered = temples.filter(temple => temple.location.includes("United States"));
-        displayTemples(filtered);
+        // Display all temples without any filtering
+        displayTemples(temples);
     });
 });
