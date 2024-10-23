@@ -1,0 +1,25 @@
+@media (min-width: 600px) {
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .temple-card {
+    width: calc(50% - 20px); /* Two images per row */
+    margin: 10px; /* Space between cards */
+  }
+}
+
+@media (min-width: 900px) {
+  .temple-card {
+    width: calc(33.333% - 20px); /* Three images per row */
+  }
+}
+
+
+

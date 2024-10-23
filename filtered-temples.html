@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temples</title>
+
+    <!-- Critical CSS Inline -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .temple-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 1rem;
+            padding: 1rem;
+            width: calc(100% - 2rem);
+            box-sizing: border-box;
+        }
+
+        .temple-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+
+    <!-- Link to external stylesheets -->
+    <link rel="stylesheet" href="styles/filtered-temples-small.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="styles/filtered-temples-large.css" media="print" onload="this.media='all'">
+
+    <!-- Preconnect to important origins -->
+    <link rel="preconnect" href="https://content.churchofjesuschrist.org">
+    <link rel="preconnect" href="https://churchofjesuschristtemples.org">
+
+    <!-- DNS-prefetch for less critical origins -->
+    <link rel="dns-prefetch" href="https://content.churchofjesuschrist.org">
+    <link rel="dns-prefetch" href="https://churchofjesuschristtemples.org">
+</head>
+<body>
+    <header>
+        <h1>Temples</h1>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#" id="filter-home">Home</a></li>
+                <li><a href="#" id="filter-old">Old</a></li>
+                <li><a href="#" id="filter-new">New</a></li>
+                <li><a href="#" id="filter-large">Large</a></li>
+                <li><a href="#" id="filter-small">Small</a></li>
+            </ul>
+            <div id="hamburger">&#9776;</div>
+        </nav>
+    </header>
+    <main>
+        <h2>Home</h2>
+        <div class="gallery" id="temples-container"></div>
+    </main>
+    <footer>
+        <script src="scripts/getdates.js" defer></script>
+        <script src="scripts/filtered-temples.js" defer></script>
+        <p id="copyright"></p>
+        <p id="lastModified"></p>
+    </footer>
+
+    <script>
+        // Add a listener to handle the page visibility change event
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                // Logic to rehydrate the state if needed
+                console.log('Page restored from bfcache');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
