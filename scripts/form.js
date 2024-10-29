@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle form submission
     const form = document.querySelector('form');
     form.addEventListener('submit', function(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent form from submitting normally
 
         const productName = document.querySelector('#product-name').value;
         const rating = document.querySelector('input[name="rating"]:checked').value;
@@ -38,8 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Written Review:', writtenReview);
         console.log('User Name:', userName);
 
-        // Here you can add code to send the data to a server or process it further
+        // Redirect to review.html after form submission
+        window.location.href = "review.html";
     });
 });
+
+
 
 
