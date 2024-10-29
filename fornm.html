@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review</title>
+    <link rel="stylesheet" href="styles/form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Product Review</h1>
+        <form>
+            <label for="product-name">Product Name</label>
+            <select id="product-name">
+                <!-- Options will be populated by JavaScript -->
+            </select>
+
+            <label>Overall Rating</label>
+            <label><input type="radio" name="rating" value="1"> 1 Star</label>
+            <label><input type="radio" name="rating" value="2"> 2 Stars</label>
+            <label><input type="radio" name="rating" value="3"> 3 Stars</label>
+            <label><input type="radio" name="rating" value="4"> 4 Stars</label>
+            <label><input type="radio" name="rating" value="5"> 5 Stars</label>
+
+            <label for="date-of-installation">Installation Date</label>
+            <input type="date" id="date-of-installation">
+
+            <label>Useful Features</label>
+            <label><input type="checkbox" name="features" value="Durability"> Durability</label>
+            <label><input type="checkbox" name="features" value="Ease of Use"> Ease of Use</label>
+            <label><input type="checkbox" name="features" value="Performance"> Performance</label>
+            <label><input type="checkbox" name="features" value="Design"> Design</label>
+
+            <label for="written-review">Write a Review (optional)</label>
+            <textarea id="written-review" rows="4"></textarea>
+
+            <label for="user-name">Your Name (optional)</label>
+            <input type="text" id="user-name">
+
+            <button type="submit">Post Review</button>
+        </form>
+        <footer>
+            <p id="copyright"></p>
+            <p id="lastModified"></p>
+        </footer>
+    </div>
+    <script src="scripts/getdates.js" defer></script>
+    <script src="scripts/form.js" defer></script>
+</body>
+</html>
+
+
+
+
