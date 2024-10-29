@@ -1,3 +1,6 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
     font-family: Arial, sans-serif;
     background-color: #e06be2;

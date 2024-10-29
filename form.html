@@ -16,19 +16,20 @@
         <h1>Product Review</h1>
         <form method="get" action="review.html">
             <label for="product-name">Product Name</label>
-            <select id="product-name">
+            <select id="product-name" name="product-name" required>
+                <option value="" disabled selected>Select a Product ...</option>
                 <!-- Options will be populated by JavaScript -->
             </select>
 
             <label>Overall Rating</label>
-            <label><input type="radio" name="rating" value="1"> 1 Star</label>
-            <label><input type="radio" name="rating" value="2"> 2 Stars</label>
-            <label><input type="radio" name="rating" value="3"> 3 Stars</label>
-            <label><input type="radio" name="rating" value="4"> 4 Stars</label>
-            <label><input type="radio" name="rating" value="5"> 5 Stars</label>
+            <label><input type="radio" name="rating" value="1" required> 1 Star</label>
+            <label><input type="radio" name="rating" value="2" required> 2 Stars</label>
+            <label><input type="radio" name="rating" value="3" required> 3 Stars</label>
+            <label><input type="radio" name="rating" value="4" required> 4 Stars</label>
+            <label><input type="radio" name="rating" value="5" required> 5 Stars</label>
 
             <label for="date-of-installation">Installation Date</label>
-            <input type="date" id="date-of-installation">
+            <input type="date" id="date-of-installation" name="date-of-installation" required>
 
             <label>Useful Features</label>
             <label><input type="checkbox" name="features" value="Durability"> Durability</label>
@@ -37,15 +38,15 @@
             <label><input type="checkbox" name="features" value="Design"> Design</label>
 
             <label for="written-review">Write a Review (optional)</label>
-            <textarea id="written-review" rows="4"></textarea>
+            <textarea id="written-review" name="written-review" rows="4"></textarea>
 
             <label for="user-name">Your Name (optional)</label>
-            <input type="text" id="user-name">
+            <input type="text" id="user-name" name="user-name">
 
             <button type="submit">Post Review</button>
         </form>
         <footer>
-            <p id="copyright"></p>
+            <p id="copyright">© 2024 Your Company Name. All rights reserved.</p>
             <p id="lastModified"></p>
         </footer>
     </div>
@@ -53,6 +54,7 @@
     <script src="scripts/form.js" defer></script>
 </body>
 </html>
+
 
 
 
