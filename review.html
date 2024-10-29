@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Summary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Thank You for Your Review!</h1>
+        <p>Number of reviews completed: <span id="review-count"></span></p>
+        <a href="index.html">Submit another review</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const reviewCountSpan = document.querySelector('#review-count');
+            let reviewCount = localStorage.getItem('reviewCount');
+            if (!reviewCount) {
+                reviewCount = 0;
+            }
+            reviewCount = parseInt(reviewCount) + 1;
+            localStorage.setItem('reviewCount', reviewCount);
+            reviewCountSpan.textContent = reviewCount;
+        });
+    </script>
+</body>
+</html>
