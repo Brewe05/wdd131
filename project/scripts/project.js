@@ -1,13 +1,48 @@
+// Declare imageCollections globally
+const imageCollections = {
+    mission: [
+        'images/mission1.jpg',
+        'images/mission2soweto.webp',
+        'images/mission3soweto.webp',
+        'images/mission4etwatwa.webp',
+        'images/mission5etwatwa.webp',
+        'images/mission6temple.webp',
+    ],
+    after: [
+        'images/after1.jpg',
+        'images/after2.jpg',
+        'images/after3.jpg',
+        'images/after4.jpg',
+        'images/after5.jpg',
+    ],
+    before: [
+        'images/before1.jpg',
+        'images/before2.jpg',
+        'images/before3.jpg',
+        'images/before4.jpg',
+        'images/before5.jpg',
+    ],
+};
+
 // Function to display last modified date and load images
 document.addEventListener('DOMContentLoaded', function () {
-    // Display last modified date
+    displayLastModified();
+    setupNavigationLinks();
+    loadImages(); // Now this can access imageCollections
+    setupUserPreferences();
+});
+
+// Function to display last modified date
+function displayLastModified() {
     const lastModified = document.lastModified;
     const lastModifiedElement = document.getElementById('lastModified');
     if (lastModifiedElement) {
         lastModifiedElement.textContent = `Last Modified: ${lastModified}`;
     }
+}
 
-    // Smooth scrolling for navigation links (commented out for testing)
+// Function to setup navigation links with smooth scrolling
+function setupNavigationLinks() {
     const navLinks = document.querySelectorAll('nav ul li a');
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
@@ -15,38 +50,17 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = targetId; // Navigate to the new page
         });
     });
+}
 
-    // Image arrays
-    const missionImages = [
-        'project/images/mission1.jpg',
-        'project/images/mission2soweto.webp',
-        'project/images/mission3soweto.webp',
-        'project/images/mission4etwatwa.webp',
-        'project/images/mission5etwatwa.webp',
-        'project/images/mission6temple.webp',
-    ];
+// Function to load images into a gallery
+function loadImages() {
+    const containerId = getCurrentContainerId();
+    const imageArray = imageCollections[containerId];
 
-    const afterImages = [
-        'project/images/after1.jpg',
-        'project/images/after2.jpg',
-        'project/images/after3.jpg',
-        'project/images/after4.jpg',
-        'project/images/after5.jpg',
-    ];
-
-    const beforeImages = [
-        'project/images/before1.jpg',
-        'project/images/before2.jpg',
-        'project/images/before3.jpg',
-        'project/images/before4.jpg',
-        'project/images/before5.jpg',
-    ];
-
-    // Function to load images into a gallery
-    function loadImages(containerId, imageArray) {
-        const container = document.getElementById(containerId);
+    if (imageArray) {
+        const container = document.getElementById(`${containerId}_container`);
         if (!container) {
-            console.error(`Container with ID ${containerId} not found.`);
+            console.error(`Container with ID ${containerId}_container not found.`);
             return;
         }
 
@@ -54,21 +68,44 @@ document.addEventListener('DOMContentLoaded', function () {
             const img = document.createElement('img');
             img.src = imageUrl;
             img.alt = 'Image related to mission'; // Customize alt text as needed
-          // Enable lazy loading
+            img.loading = 'lazy'; // Enable lazy loading
             img.classList.add('gallery-image'); // Add a class for styling
             container.appendChild(img);
         });
     }
+}
 
-    // Load images based on the current page
+// Function to get current container ID based on the page
+function getCurrentContainerId() {
     if (document.getElementById('mission_container')) {
-        loadImages('mission_container', missionImages);
+        return 'mission';
     } else if (document.getElementById('after_container')) {
-        loadImages('after_container', afterImages);
+        return 'after';
     } else if (document.getElementById('before_container')) {
-        loadImages('before_container', beforeImages);
+        return 'before';
     }
-});
+    return null;
+}
+
+// Function to setup user preferences
+function setupUserPreferences() {
+    const themeSelector = document.getElementById('theme-selector');
+    if (themeSelector) {
+        // Load saved theme from localStorage
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.className = savedTheme;
+        themeSelector.value = savedTheme;
+
+        // Listen for changes to the theme selector
+        themeSelector.addEventListener('change', function () {
+            const selectedTheme = this.value;
+            document.body.className = selectedTheme;
+            localStorage.setItem('theme', selectedTheme); // Save theme to localStorage
+        });
+    }
+}
+
+
 
 
 
