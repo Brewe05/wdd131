@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const img = document.createElement('img');
             img.src = imageUrl;
             img.alt = 'Image related to mission'; // Customize alt text as needed
-            img.loading = 'lazy'; // Enable lazy loading
+          // Enable lazy loading
             img.classList.add('gallery-image'); // Add a class for styling
             container.appendChild(img);
         });
