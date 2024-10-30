@@ -18,28 +18,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Image arrays
     const missionImages = [
-        '/project/images/mission1.jpg',
-        '/project/images/mission2soweto.webp',
-        '/project/images/mission3soweto.webp',
-        '/project/images/mission4etwatwa.webp',
-        '/project/images/mission5etwatwa.webp',
-        '/project/images/mission6temple.webp',
+        'project/images/mission1.jpg',
+        'project/images/mission2soweto.webp',
+        'project/images/mission3soweto.webp',
+        'project/images/mission4etwatwa.webp',
+        'project/images/mission5etwatwa.webp',
+        'project/images/mission6temple.webp',
     ];
 
     const afterImages = [
-        '/project/images/after1.jpg',
-        '/project/images/after2.jpg',
-        '/project/images/after3.jpg',
-        '/project/images/after4.jpg',
-        '/project/images/after5.jpg',
+        'project/images/after1.jpg',
+        'project/images/after2.jpg',
+        'project/images/after3.jpg',
+        'project/images/after4.jpg',
+        'project/images/after5.jpg',
     ];
 
     const beforeImages = [
-        '/project/images/before1.jpg',
-        '/project/images/before2.jpg',
-        '/project/images/before3.jpg',
-        '/project/images/before4.jpg',
-        '/project/images/before5.jpg',
+        'project/images/before1.jpg',
+        'project/images/before2.jpg',
+        'project/images/before3.jpg',
+        'project/images/before4.jpg',
+        'project/images/before5.jpg',
     ];
 
     // Function to load images into a gallery
